@@ -1,10 +1,18 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import viteLogo from './assets/vite.svg'
+import jscadLogo from './assets/jscad.png'
 import './App.css'
+import { JSCADViewer } from './components/JSCADViewer'
+import { cube } from '../lib/main'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [length, setCount] = useState(10);
+
+  const solids = useMemo(() => {
+    return cube({ length: length });
+  }
+    , [length]);
 
   return (
     <>
@@ -15,19 +23,26 @@ function App() {
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
+        <a href="https://github.com/jscad/OpenJSCAD.org" target="_blank">
+          <img src={jscadLogo} className="logo" alt="JSCAD logo" />
+        </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Vite + React + JSCAD</h1>
+      <JSCADViewer solids={solids} />
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button onClick={() => setCount((length) => length + 1)}>
+          length is {length}
         </button>
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          Edit <code>lib/main.ts</code> and save to test HMR
         </p>
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        Click on the Vite, React, and JSCAD logos to learn more
       </p>
+      <a href="https://vitejs.dev/guide/build#library-mode" target="_blank">
+        Read the Vite Docs (Library Mode)
+      </a>
     </>
   )
 }
