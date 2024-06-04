@@ -4,13 +4,13 @@ import viteLogo from './assets/vite.svg'
 import jscadLogo from './assets/jscad.png'
 import './App.css'
 import { JSCADViewer } from './components/JSCADViewer'
-import { cube } from '../lib/main'
+import { randomCube } from '../lib/main'
 
 function App() {
   const [length, setCount] = useState(10);
 
   const solids = useMemo(() => {
-    return cube({ length: length });
+    return randomCube({ minSize: length, maxSize: length * 2 });
   }
     , [length]);
 
