@@ -6,7 +6,8 @@ import { primitives } from "@jscad/modeling";
 
 const { cube } = primitives;
 
-export function randomCube({ minSize = 2, maxSize = 4 }: { minSize?: number, maxSize?: number }) {
+export function randomCube(options?: { minSize?: number, maxSize?: number }) {
+  const { minSize = 2, maxSize = 4 } = options || {};
   if (minSize > maxSize) throw new Error('minSize must be less than maxSize');
   const size = minSize + Math.random() * (maxSize - minSize);
   return cube({ size });
