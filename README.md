@@ -2,6 +2,8 @@
 
 This template provides a minimal setup to publish a JSCAD package and uses React to render a simple user interface to test the output of the JSCAD package.
 
+> 💡 For a more opinionated setup with prettier and GitHub workflow check out the `more-opinionated` branch.
+
 ## Getting started
 
 Create a new github repository from this template (more info [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)) and clone the repository to your local machine.
