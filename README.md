@@ -7,6 +7,11 @@ This template provides a minimal setup to publish a JSCAD package and uses React
 > This branch is more opinionated and includes the following additional features:
 
 - [x] prettier
+- [x] github workflow to publish to npm
+
+For the github workflow to work you need to set the following [secrets](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) in your repository:
+
+- `NPM_TOKEN`: Your npm access token
 
 ## Getting started
 
